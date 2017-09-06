@@ -27,33 +27,4 @@ RSpec.feature "Guest Becomes A User" do
       expect(page).to have_content("Welcome, itsnay")
     end
   end
-
 end
-
-# require 'rails_helper'
-#
-# RSpec.feature "Guest Becomes A User" do
-#   context "guest creates a new user" do
-#     it "sees and fills out new user form" do
-#       visit '/'
-#       expect(page).to have_link("Create New User")
-#       click_link "Create New User"
-#       expect(current_path).to eq(new_user_path)
-#       fill_in "user[username]", with: "snayrouz"
-#       fill_in "user[password]", with: "password"
-#       click_on "Create User"
-#       expect(current_path).to eq(user_path(User.last))
-#       expect(page).to have_content("Hi, snayrouz")
-#       expect(page).to have_link("Logout")
-#       click_on "Logout"
-#       expect(current_path).to eq(root_path)
-#       expect(page).to have_link("Already a user? Click Here")
-#       click_on "Already a user? Click Here"
-#       expect(current_path).to eq(login_path)
-#       fill_in "session[username]", with: "snayrouz"
-#       fill_in "session[password]", with: "password"
-#       click_on "Log in"
-#       expect(page).to have_content("Hi, snayrouz")
-#     end
-#   end
-# end
