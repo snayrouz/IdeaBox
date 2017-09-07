@@ -14,9 +14,10 @@ RSpec.feature "Admin Visits Login Page" do
       fill_in "session[username]", with: "itsnay"
       fill_in "session[email]", with: "naynaynay@aol.com"
       fill_in "session[password]", with: "wordpass"
+      click_on "Log In"
 
-      expect(current_path).to eq(new_admin_category_path)
-      expect(page).to have_content("Create a new idea category below")
+      expect(current_path).to eq(user_path(admin))
+      expect(page).to have_link("New Category")
     end
   end
 end

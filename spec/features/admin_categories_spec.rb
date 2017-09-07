@@ -11,7 +11,7 @@ describe "User visits categories new page" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit new_admin_category_path
-      expect(page).to have_content("New Idea Category")
+      expect(page).to have_content("New Category")
     end
   end
 

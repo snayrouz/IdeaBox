@@ -14,7 +14,7 @@ RSpec.feature "Guest Becomes A User" do
       visit '/'
 
       click_link "Create Account"
-      expect(current_path).to eq(new_user_path)
+      expect(current_path).to eq(signup_path)
 
       fill_in "user[username]", with: "itsnay"
       fill_in "user[email]", with: "abc123@aol.com"

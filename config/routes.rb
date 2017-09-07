@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root to: 'welcome#index'
   namespace :admin do
-    resources :categories, only: [:new]
+    resources :categories
     resources :images, only: [:new]
   end
 
   resources :categories do
-    resources :ideas 
+    resources :ideas
   end
 
   resources :users, only: [:new, :create, :show]
@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  get '/signup', to: 'users#new'
   get '/admin', to: 'sessions#new'
 end
