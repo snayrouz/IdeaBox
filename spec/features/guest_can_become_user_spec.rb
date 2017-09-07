@@ -6,8 +6,8 @@ RSpec.feature "Guest Becomes A User" do
       visit '/'
 
       expect(page).to have_content("Welcome To IdeaBox!")
-      expect(page).to have_link("Create A New Account")
-      expect(page).to have_link("Already have an account? Click here!")
+      expect(page).to have_link("Create Account")
+      expect(page).to have_link("User Log In")
 
     end
 
