@@ -20,7 +20,9 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/admin" class="header-button">Admin Login</a></li>
-          <li><a href="/logout" class="header-button">Logout</a></li>
+          <% if logged_in? %>
+            <li><%= link_to "Logout", logout_path, method: :delete %></li>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -33,9 +35,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
   </body>
   <footer>
-    <% if logged_in? %>
-      <%= link_to "Logout", logout_path, method: :delete %>
-    <% end %>
   </footer>
   </div>
 </html>
