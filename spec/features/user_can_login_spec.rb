@@ -19,15 +19,17 @@ RSpec.feature "User Visits Login Page" do
       expect(page).to have_content("Welcome, itsnay")
     end
 
-    xit "and enters invalid credentials" do
+    it "and enters invalid credentials" do
       user = User.create(username: "itsnay",
                          email: "naynaynay@aol.com",
                          password: "wordpass",
                          role: 0)
 
-      fill_in "session[Username]", with: "itsnay"
+      visit login_path
+
+      fill_in "session[username]", with: "itsnay"
       fill_in "session[email]", with: "naynaynay"
-      fill_in "session[password]", with: user.password
+      fill_in "session[password]", with: 561981
       click_on "Log In"
 
       expect(current_path).to eq(login_path)
