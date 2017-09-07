@@ -1,1 +1,10 @@
-<h1>New Idea Category</h1>
+<h1>New Category:</h1>
+
+<div class="container-fluid">
+  <%= form_for(:admin, url: new_admin_category_path) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name%>
+
+    <%= f.submit "Create Category" %>
+  <% end %>
+</div>
