@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root to: 'welcome#index'
+
   namespace :admin do
     resources :categories
-    resources :images, only: [:new]
+    resources :images
   end
 
   resources :categories do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907193106) do
+ActiveRecord::Schema.define(version: 20170908144201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,27 @@ ActiveRecord::Schema.define(version: 20170907193106) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "idea_images", force: :cascade do |t|
+    t.integer "idea_id"
+    t.integer "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "ideas", force: :cascade do |t|
     t.string "title"
     t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.bigint "user_id"
+    t.index ["category_id"], name: "index_ideas_on_category_id"
+    t.index ["user_id"], name: "index_ideas_on_user_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,4 +55,6 @@ ActiveRecord::Schema.define(version: 20170907193106) do
     t.string "email"
   end
 
+  add_foreign_key "ideas", "categories"
+  add_foreign_key "ideas", "users"
 end

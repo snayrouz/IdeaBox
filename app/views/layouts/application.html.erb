@@ -18,15 +18,13 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/admin" class="header-button">Admin Login</a></li>
           <% if logged_in? %>
-          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+            <li><%= link_to "Logout", logout_path, method: :delete %></li>
           <% end %>
-          <li><a href="/admin/categories/new" class="header-button">New Category</a></li>
-          <% if logged_in? && current_admin? %>
-          <li><%= link_to "New Category", new_admin_category_path %></li>
-          <% end %>
-          <li><a href="/admin/images/new" class="header-button">Upload Images</a></li>
-          <% if logged_in? && current_admin? %>
-          <li><%= link_to "Upload Images", new_admin_image_path %></li>
+          <% if current_admin? %>
+            <li><a href="/admin/categories/new" class="header-button">New Category</a></li>
+            <li><%= link_to "New Category", new_admin_category_path %></li>
+            <li><a href="/admin/images/new" class="header-button">Upload Images</a></li>
+            <li><%= link_to "Upload Images", new_admin_image_path %></li>
           <% end %>
         </ul>
       </div>
