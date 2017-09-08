@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <table class="table table-striped text-left table-bordered">
+    <thead>
+      <th><%= @category.name %></th>
+        <tbody>
+
+      <tr><% @category.ideas.each do |idea| %></tr>
+        <td><%= link_to idea.title, user_idea_path(idea.category, idea) %></td>
+          <% end %>
+      </tbody>
+    </thead>
+  </table>
+<br>
+<footer>
+  <%= link_to 'Back to All Categories', admin_categories_path %>
+</footer>
+</div>
