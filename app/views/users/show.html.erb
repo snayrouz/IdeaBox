@@ -5,7 +5,16 @@
 
 
   <button type="button" class="btn btn-light"><%= link_to "New Idea", new_user_idea_path(@user) %></button>
+  <table class="table text-center">
+  <thead>
+    <tbody>
+      <tr>
+        <% @user.ideas.each do |idea| %>
+          <td><%= link_to idea.title, user_idea_path(@user, idea) %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </thead>
+  </table>
 
-  <h2>Input our fresh idea here(add image to idea):</h2>
-  <p>this form will have a dropdown for categories but user cannot create a category</p>
 </div>

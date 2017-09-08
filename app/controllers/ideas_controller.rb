@@ -22,6 +22,10 @@ class IdeasController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
   def edit
     @user = current_user
     @idea = @user.ideas.find(params[:id])
@@ -42,7 +46,6 @@ class IdeasController < ApplicationController
     @user = current_user
     @idea = @user.ideas.find(params[:id])
     if @idea.destroy
-      #flash notice for deletion
     else
       redirect_to @user
     end
