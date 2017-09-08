@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "User visits categories new page" do
+xdescribe "User visits categories new page" do
   context "as an administrator" do
     it "allows admin to view page and add new category " do
       admin = User.create(username: "samnay",

@@ -25,5 +25,22 @@ describe "Admin Visits Categories Index Page" do
       expect(current_path).to eq(admin_categories_path)
       expect(page).to have_content("Food")
     end
+
+    it "clicks on delete and deletes the category" do
+      admin = User.create(username: "samnay",
+                          email: "sn@aol.com",
+                          password: "password",
+                          role: 1)
+      category = Category.create(name: "Lunch")
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+      visit admin_categories_path
+
+      click_link "Delete"
+
+      expect(current_path).to eq(admin_categories_path)
+      expect(page).to_not have_content(category.name)
+    end
   end
 end
