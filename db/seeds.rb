@@ -7,14 +7,14 @@ USERS = ["Sam", "Darby", "Moose", "Peter", "Jerry"]
 IDEAS = ["Concert", "Curriculum", "Vacation", "Holidays", "Dog"]
 IMAGES = ["https://robohash.org/1","https://robohash.org/2","https://robohash.org/3","https://robohash.org/4","https://robohash.org/5"]
 CATEGORIES = ["Travel", "Pets", "Personal", "Turing", "Music", "Fun"]
-DESCRIPTION = ["Fleet Foxes at Red Rocks", "Mod 2 CRUDing many to many", "Europe for post school vacation", "go to Cali for Xmas", "Get moose leash trained"]
-EMAIL = ["sam@example.com", "darby@example.com", "moose@example.com", "peter@example.com", "jerry@example.com"]
+DESCRIPTIONS = ["Fleet Foxes at Red Rocks", "Mod 2 CRUDing many to many", "Europe for post school vacation", "go to Cali for Xmas", "Get moose leash trained"]
+EMAILS = ["sam@example.com", "darby@example.com", "moose@example.com", "peter@example.com", "jerry@example.com"]
 
 USERS.each do |name|
-  user = User.create!(username: name, password: IDEAS.sample, email: EMAIL.sample)
+  user = User.create!(username: name, password: IDEAS.sample, email: EMAILS.sample)
   puts "Created #{user.username}"
   5.times do |num|
-    user.ideas.create!(title: IDEAS.sample, description: DESCRIPTION.sample, category: Category.find_or_create_by(name: CATEGORIES.sample))
+    user.ideas.create!(title: IDEAS.sample, description: DESCRIPTIONS.sample, category: Category.find_or_create_by(name: CATEGORIES.sample))
   end
 end
 
