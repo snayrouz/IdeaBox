@@ -1,7 +1,31 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Idea.destroy_all
+Image.destroy_all
+Category.destroy_all
+User.destroy_all
+
+USERS = ["Sam", "Darby", "Moose", "Peter", "Jerry"]
+IDEAS = ["Concert", "Curriculum", "Vacation", "Holidays", "Dog", ]
+IMAGES = ["https://robohash.org/1","https://robohash.org/2","https://robohash.org/3","https://robohash.org/4","https://robohash.org/5"]
+CATEGORIES = ["Travel", "Pets", "Personal", "Turing", "Music", "Fun"]
+DESCRIPTION = ["Fleet Foxes at Red Rocks", "Mod 2 CRUDing many to many", "Europe for post school vacation", "go to Cali for Xmas", "Get moose leash trained"]
+
+CATEGORIES.each do |name|
+  Category.create!(name: name)
+end
+
+USERS.each do |name|
+  user = User.create!(username: name, password: IDEAS.sample, email: 'test-#{name}@gmail.com')
+  3.times do |num|
+    user.ideas.find_or_create_by!(title: IDEAS.sample, description: DESCRIPTION.sample, category_id: (rand(5) + 1))
+  end
+end
+
+IMAGES.each do |image|
+  counter = rand(100)
+  Image.create!(title: "Robot #{counter}", url: image)
+end
+
+User.create(username: "user", password: "123", email: 'user@example.com')
+User.create(username: "admin", password: "123", email: 'admin@example.com', role: 1)
+
+puts "Seeded like a boss"
