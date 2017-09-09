@@ -1,4 +1,18 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark" role="navigation">
 <div class="container-fluid">
+  <a href="/" class = "navbar-brand">IDEABOX</a>
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li> <%= link_to "Home", root_path %></li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+<div class="jumbotron">
+  <h3>Create A New Account:</h3><br>
+
   <%= form_for(@user) do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username%>
@@ -11,4 +25,5 @@
 
     <%= f.submit "Create Account" %>
   <% end %>
+
 </div>

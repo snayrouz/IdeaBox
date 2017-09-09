@@ -1,18 +1,34 @@
 <div class="container-fluid">
+  <nav class="navbar navbar-expand navbar-dark bg-dark" role="navigation">
+  <div class="container-fluid">
+    <a href="/" class = "navbar-brand">IDEABOX</a>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "New Idea", new_user_idea_path(@user, @idea) %></li>
+        <% if current_user.role == "admin" %>
+          <li><%= link_to "New Category", new_admin_category_path %></li>
+          <li><%= link_to "Upload Images", new_admin_image_path %></li>
+        <% end %>
+        <% if logged_in? %>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-
+<div class="jumbotron">
   <h1>Welcome, <%= @current_user.username %></h1>
-
-
-  <button type="button" class="btn btn-light"><%= link_to "New Idea", new_user_idea_path(@user) %></button>
+</div>
   <table class="table text-center">
   <thead>
+    <th>Your Ideas</th>
     <tbody>
-      <tr>
-        <% @user.ideas.each do |idea| %>
+      <tr> <% @user.ideas.each do |idea| %> </tr>
           <td><%= link_to idea.title, user_idea_path(@user, idea) %></td>
+          <td><button type="button" class="btn btn-light"><%= link_to "Edit", edit_user_idea_path(idea) %></button></td>
+          <td><button type="button" class="btn btn-outline-warning"><%= link_to "Delete", user_idea_path(idea), method: :delete, data: { confirm: 'Are you sure you want to delete this category?' } %></button></td>
         <% end %>
-      </tr>
     </tbody>
   </thead>
   </table>

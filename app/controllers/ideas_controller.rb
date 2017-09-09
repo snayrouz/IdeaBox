@@ -44,7 +44,6 @@ class IdeasController < ApplicationController
       # flash[:notice] = "Idea not updated. #{@idea.errors}"
       redirect_to edit_user_idea_path
     end
-
   end
 
   def destroy
@@ -62,7 +61,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:idea, :category_id, :user_id, image_ids: [])
+    params.require(:idea).permit(:title, :description, :category_id, :user_id, image_ids: [])
   end
 
 end

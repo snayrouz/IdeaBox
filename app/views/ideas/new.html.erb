@@ -1,11 +1,26 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark" role="navigation">
 <div class="container-fluid">
+  <a href="/" class = "navbar-brand">IDEABOX</a>
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li> <%= link_to "Home", user_path(@user) %></li>
+      <% if logged_in? %>
+        <li><%= link_to "Logout", logout_path, method: :delete %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+</nav>
+
+<div class="jumbotron">
+<h3>Submit a New Idea: </h3>
   <%= form_for [@user, @idea] do |f| %>
     <%= f.label :title %>
-    <%= f.text_field :title %>
-
+    <%= f.text_field :title %><br>
+    <br>
     <%= f.label :description %>
-    <%= f.text_area :description %>
-
+    <%= f.text_area :description %><br>
+    <br>
     <%= f.label :category %>
     <%= f.collection_select :category_id, Category.all, :id, :name %>
     <div class="">
@@ -15,7 +30,6 @@
         <p><%= image.title %></p>
     <% end %>
     </div>
-
     <%= f.submit %>
   <% end %>
 </div>

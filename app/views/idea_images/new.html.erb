@@ -1,10 +1,11 @@
 <div class="container-fluid">
 
 <h1>Select an image for your idea</h1>
-
-<%= form_for [@idea, @idea_image] do |f| %>
-  <%= f.label :image %>
-  <%= f.collection_select :image_id, Image.all, :image_id, :url, :prompt => true %>
-  <%= f.submit %>
-<% end %>
+  <div class="jumbotron">
+    <%= form_for [@idea, @idea_image] do |f| %>
+      <%= f.label :image %>
+      <%= f.collection_select :image_id, Image.all, :image_id, :url, :prompt => true %>
+      <%= f.submit %>
+    <% end %>
+  </div>
 </div>
