@@ -5,8 +5,8 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <% if current_user.role == "admin" %>
-        <li><%= link_to "New Category", new_admin_category_path %></li>
-        <li><%= link_to "Upload Images", new_admin_image_path %></li>
+        <li><%= link_to "Categories", admin_categories_path %></li>
+        <li><%= link_to "Images", admin_images_path %></li>
         <% end %>
         <% if logged_in? %>
           <li><%= link_to "Logout", logout_path, method: :delete %></li>
@@ -15,6 +15,9 @@
     </div>
   </div>
 </nav>
+<button type="button" class="btn btn-light"><%= link_to "New Image", new_admin_image_path %></button><br>
+<br>
+
   <table class="table text-left table-striped table-bordered">
     <thead>
       <th>Image Index</th>
