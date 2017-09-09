@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <%= form_for [:admin, @image] do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+
+    <%= f.submit "Upload Image" %>
+  <% end %>
+</div>

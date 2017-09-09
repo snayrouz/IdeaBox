@@ -8,6 +8,13 @@
 
     <%= f.label :category %>
     <%= f.collection_select :category_id, Category.all, :id, :name %>
+    <div class="">
+      <h4>Select an image tag for your idea:</h4>
+    <% Image.all.each do |image| %>
+      <%= check_box_tag('idea[image_ids][]', image.id, @idea.images.include?(image), id: "image-#{image.id}") %>
+        <p><%= image.title %></p>
+    <% end %>
+    </div>
 
     <%= f.submit %>
   <% end %>

@@ -3,16 +3,19 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :categories
+  end
+
+  namespace :admin do
     resources :images
   end
 
-  resources :users, except: [:new] do
+  resources :users do
     resources :ideas do
       resources :idea_images
     end
   end
 
-  resources :users, only: [:new, :create, :show]
+  resources :users
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
