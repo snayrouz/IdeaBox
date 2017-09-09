@@ -1,25 +1,26 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark" role="navigation">
-<div class="container-fluid">
-  <a href="/" class = "navbar-brand">IDEABOX</a>
-  <div class="collapse navbar-collapse">
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="/admin" class="header-button">Admin Login</a></li>
-    </ul>
+  <nav class="navbar navbar-expand navbar-dark bg-dark" role="navigation">
+  <div class="container-fluid">
+    <a href="/" class = "navbar-brand">IDEABOX</a>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/admin" class="header-button">Admin Login</a></li>
+      </ul>
+    </div>
   </div>
-</div>
-</nav>
+  </nav>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container-fluid">
+    <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username%>
 
-<div class="container-fluid">
-  <%= form_for(:session, url: login_path) do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username%>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
 
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-
-    <%= f.submit "Log In" %>
-  <% end %>
+      <%= f.submit "Log In" %>
+    <% end %>
+  </div>
 </div>
