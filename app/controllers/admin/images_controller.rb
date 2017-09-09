@@ -11,9 +11,9 @@ class Admin::ImagesController < Admin::BaseController
 
   def create
     @image = Image.new(image_params)
-
     @image.save
-    #flash message for image added
+    flash[:notice] = "Image Added!"
+
     redirect_to admin_images_path
   end
 
@@ -30,10 +30,10 @@ class Admin::ImagesController < Admin::BaseController
   def update
     @image = Image.find(params[:id])
     if @image.update(image_params)
-      #flash message successful
+      flash[:notice] = "Image Updated!"
       redirect_to admin_images_path
     else
-      #flash message unsuccessful
+      flash[:notice] = "Error, #{@image.errors.keys}, #{@image.errors.values}"
       redirect_to edit_admin_image_path
     end
   end
@@ -41,6 +41,7 @@ class Admin::ImagesController < Admin::BaseController
   def destroy
     @image = Image.find(params[:id])
     @image.destroy
+    flash[:notice] = "Image Deleted!"
 
     redirect_to admin_images_path
   end

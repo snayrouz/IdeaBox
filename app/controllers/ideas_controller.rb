@@ -21,10 +21,10 @@ class IdeasController < ApplicationController
     @user = current_user
     @idea = @user.ideas.new(idea_params)
     if @idea.save
-      # flash[:notice] = "Idea saved!"
+      flash[:notice] = "Idea saved!"
       redirect_to @user
     else
-      # flash[:notice] = "Idea not saved. #{@idea.errors.keys}, #{@idea.errors.values}"
+      flash[:notice] = "Idea not saved. #{@idea.errors.keys}, #{@idea.errors.values}"
       redirect_to new_user_idea_path
     end
   end
@@ -61,7 +61,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :description, :category_id, :user_id, image_ids: [])
+    params.require(:idea).permit(:title, :description, :category_id, :user, image_ids: [])
   end
 
 end
