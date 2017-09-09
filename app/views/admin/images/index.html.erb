@@ -1,5 +1,4 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-expand navbar-dark bg-dark" role="navigation">
+<nav class="navbar navbar-expand navbar-dark bg-dark" role="navigation">
   <div class="container-fluid">
     <a href="/" class = "navbar-brand">IDEABOX</a>
     <div class="collapse navbar-collapse">
@@ -16,7 +15,8 @@
     </div>
   </div>
 </nav>
-<button type="button" class="btn btn-light"><%= link_to "New Image", new_admin_image_path %></button><br>
+<div class="container-fluid">
+<button type="button" class="btn btn-outline-info"><%= link_to "New Image", new_admin_image_path %></button><br>
 <br>
 
   <table class="table text-left table-striped table-bordered">
