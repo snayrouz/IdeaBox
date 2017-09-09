@@ -6,8 +6,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "New Idea", new_user_idea_path(@user, @idea) %></li>
         <% if current_user.role == "admin" %>
-          <li><%= link_to "New Category", new_admin_category_path %></li>
-          <li><%= link_to "Upload Images", new_admin_image_path %></li>
+        <li><%= link_to "Categories", admin_categories_path %></li>
+        <li><%= link_to "Images", admin_images_path %></li>
         <% end %>
         <% if logged_in? %>
           <li><%= link_to "Logout", logout_path, method: :delete %></li>

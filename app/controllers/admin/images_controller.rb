@@ -1,10 +1,12 @@
 class Admin::ImagesController < Admin::BaseController
   def index
     @images = Image.all
+    @user = current_user
   end
 
   def new
     @image = Image.new
+    @user = current_user
   end
 
   def create
@@ -17,10 +19,12 @@ class Admin::ImagesController < Admin::BaseController
 
   def edit
     @image = Image.find(params[:id])
+    @user = current_user
   end
 
   def show
     @image = Image.find(params[:id])
+    @user = current_user
   end
 
   def update
