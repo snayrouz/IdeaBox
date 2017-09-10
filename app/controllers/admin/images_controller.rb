@@ -11,10 +11,15 @@ class Admin::ImagesController < Admin::BaseController
 
   def create
     @image = Image.new(image_params)
-    @image.save
-    flash[:notice] = "Image Added!"
+    if @image.save
+      flash[:notice] = "Image Added!"
 
-    redirect_to admin_images_path
+      redirect_to admin_images_path
+    else
+      flash[:notice] = "Error, #{@image.errors.keys}, #{@image.errors.values}"
+
+      redirect_to new_admin_image_path
+    end
   end
 
   def edit

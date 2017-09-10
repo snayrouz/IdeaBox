@@ -4,6 +4,15 @@
   <h3>Create A New Account:</h3><br>
 
   <%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+    <h2> <%= pluralize(@user.errors.count, "error") %> prohibited this account from being created:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  
     <%= f.label :username %>
     <%= f.text_field :username%>
 

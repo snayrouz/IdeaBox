@@ -38,7 +38,7 @@ class IdeasController < ApplicationController
     @user = current_user
     @idea = @user.ideas.find(params[:id])
     if @idea.update(idea_params)
-      flash[:notice] = "#Idea updated!"
+      flash[:notice] = "Idea updated!"
       redirect_to @user
     else
       flash[:notice] = "Idea not updated. #{@idea.errors}"
@@ -48,9 +48,9 @@ class IdeasController < ApplicationController
 
   def destroy
     @user = current_user
-    @idea = @user.ideas.find(params[:id])
+    @idea = @user.ideas.find(params[:user_id])
     if @idea.destroy
-      flash[:notice] = "Idea deleted"
+      flash[:notice] = "Idea deleted!"
       redirect_to @user
     else
       flash[:notice] = "Idea not deleted, #{@idea.errors.keys}, #{@idea.errors.values}"

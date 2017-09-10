@@ -45,10 +45,13 @@ class Admin::CategoriesController < Admin::BaseController
   def destroy
     @category = Category.find(params[:id])
     if @category.destroy
-      flash[:notice] = "Category Deleted!"
-      redirect_to admin_categories_path
+
+    flash[:notice] = "Category Deleted!"
+    
+    redirect_to admin_categories_path
     else
       flash[:notice] = "Error, #{@category.errors.keys}, #{@category.errors.values}"
+
       redirect_to admin_categories_path
     end
   end
