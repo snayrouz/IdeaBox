@@ -23,7 +23,7 @@ end
 puts "Seeded users and ideas"
 
 10.times do
-  counter = rand(10)
+  counter = rand(100)
   Image.create!(title: "Image #{counter}", url: Faker::Avatar.unique.image)
 end
 
