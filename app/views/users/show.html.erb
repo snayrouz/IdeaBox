@@ -8,7 +8,7 @@
   <br>
   <table class="table table-striped text-left table-bordered">
   <thead>
-    <th>Your Ideas</th>
+    <th>Your Ideas (click for more details)</th>
     <tbody>
       <tr> <% @user.ideas.each do |idea| %> </tr>
           <td><%= link_to idea.title, user_idea_path(@user, idea) %></td>

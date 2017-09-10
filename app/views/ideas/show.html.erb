@@ -9,15 +9,18 @@
       </tr>
     </thead>
     <tbody>
-<tr><% @user.ideas.each do |idea| %></tr>
-      <td><%= idea.title %></td>
-      <td><%= idea.description %></td>
-      <td><%= idea.category.name %></td>
-      <td> <% @images.each do |image| %>
-            <img src=<% image.url %>
-            <%= image.url  %>
-          <% end %></td>
-    <% end %>
+<tr>
+      <td><%= @idea.title %></td>
+      <td><%= @idea.description %></td>
+      <td><%= @idea.category.name %></td>
+    </tr>
   </tbody>
 </table>
+</div>
+<div class="text-center">
+  <h2>Images</h2>
+    <% @images.each do |image| %>
+      <p><img src=<% image.url %>
+      <%= image.url %>
+    <% end %>
 </div>

@@ -10,7 +10,7 @@
       </tr>
         <tbody>
       <tr><% @category.ideas.each do |idea| %></tr>
-        <td><%= link_to idea.title, user_idea_path(idea.category, idea) %></td>
+        <td><%= idea.title %></td>
         <td><%= idea.description %></td>
         <% end %>
       </tbody>

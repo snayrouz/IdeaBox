@@ -32,4 +32,4 @@ puts "Seeded images"
 User.create(username: "user", password: "123", email: 'user@example.com')
 User.create(username: "admin", password: "123", email: 'admin@example.com', role: 1)
 
-puts "You did it. You finally seeded this database. Go ahead and crack open a cold beer!"
+puts "Successfully seede IdeaBox database."

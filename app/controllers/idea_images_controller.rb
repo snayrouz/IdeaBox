@@ -8,20 +8,16 @@ class IdeaImages < ApplicationController
   end
 
   def create
-    # @user = current_user
-    # @idea = @user.ideas.find(params[:idea_id])
-    # @idea = Idea.find(params[:idea_id])
-    # IdeaImage.create(idea_image_params)
-    # @user = current_user
-    # @idea = @user.ideas.find(params[:idea_id])
-    # @image = @idea.images.new(idea_image_params)
-    # if @image.save
-    #   flash[:success] = "Image Added!"
-    #   redirect_to user_idea_path(@user, @idea)
-    # else
-    #   flash[:error] = "Error #{@image.errors.keys} #{@image.errors.values}"
-    #   render :new
-    # end
+    @user = current_user
+    @idea = @user.ideas.find(params[:idea_id])
+    @image = @idea.images.new(idea_image_params)
+    if @image.save
+      flash[:success] = "Image Added!"
+      redirect_to user_idea_path(@user, @idea)
+    else
+      flash[:error] = "Error #{@image.errors.keys} #{@image.errors.values}"
+      render :new
+    end
   end
 
   def delete

@@ -10,8 +10,6 @@
       <tbody>
         <tr><% @images.each do |image| %></tr>
             <td><%= link_to image.title, admin_image_path(image) %><br></td>
-            <td><button type="button" class="btn btn-light"><%= link_to "Edit", edit_admin_image_path(image) %></button></td>
-            <td><button type="button" class="btn btn-outline-warning"><%= link_to "Delete", admin_image_path(image), method: :delete, data: { confirm: 'Are you sure you want to delete this category?' } %></button></td>
           <% end %>
       </tbody>
     </thead>

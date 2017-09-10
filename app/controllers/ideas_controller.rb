@@ -38,10 +38,10 @@ class IdeasController < ApplicationController
     @user = current_user
     @idea = @user.ideas.find(params[:id])
     if @idea.update(idea_params)
-      # flash[:notice] = "#Idea updated!"
+      flash[:notice] = "#Idea updated!"
       redirect_to @user
     else
-      # flash[:notice] = "Idea not updated. #{@idea.errors}"
+      flash[:notice] = "Idea not updated. #{@idea.errors}"
       redirect_to edit_user_idea_path
     end
   end
@@ -50,10 +50,10 @@ class IdeasController < ApplicationController
     @user = current_user
     @idea = @user.ideas.find(params[:id])
     if @idea.destroy
-      # flash[:notice] = "Idea deleted"
+      flash[:notice] = "Idea deleted"
       redirect_to @user
     else
-      # flash[:notice] = "Idea not deleted, #{@idea.errors.keys}, #{@idea.errors.values}"
+      flash[:notice] = "Idea not deleted, #{@idea.errors.keys}, #{@idea.errors.values}"
       redirect_to @user
     end
   end
@@ -61,7 +61,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :description, :category_id, :user, image_ids: [])
+    params.require(:idea).permit(:title, :description, :category_id, :user_id, image_ids: [])
   end
 
 end

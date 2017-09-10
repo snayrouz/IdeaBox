@@ -4,3 +4,7 @@
   <img src=<% @image.url %>
     <%= @image.url  %>
 </div>
+<br>
+<button type="button" class="btn btn-light"><%= link_to "Edit", edit_admin_image_path(@image) %></button><br>
+<br>
+<button type="button" class="btn btn-outline-warning"><%= link_to "Delete", admin_image_path(@image), method: :delete, data: { confirm: 'Are you sure you want to delete this category?' } %></button>
