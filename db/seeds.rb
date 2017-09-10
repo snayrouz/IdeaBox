@@ -3,8 +3,8 @@ Image.destroy_all
 Category.destroy_all
 User.destroy_all
 
-10.times do
-  Category.create(name: Faker::Job.key_skill)
+8.times do
+  Category.create(name: Faker::Beer.style)
 end
 puts "Seeded categories"
 
@@ -14,17 +14,17 @@ puts "Seeded categories"
                 email: Faker::Internet.email,
                 role: Faker::Number.between(0, 1))
   20.times do
-    user.ideas.create!(title: Faker::Company.buzzword,
-                       description: Faker::FamilyGuy.quote,
-                       category_id: Faker::Number.between(1, 10),
+    user.ideas.create!(title: Faker::Dessert.topping,
+                       description: Faker::ChuckNorris.fact,
+                       category_id: Faker::Number.between(1, 8),
                        user_id: Faker::Number.between(1, 20))
   end
 end
 puts "Seeded users and ideas"
 
-20.times do
-  counter = rand(20)
-  Image.create!(title: "Bill #{counter}", url: Faker::Fillmurray.image)
+10.times do
+  counter = rand(10)
+  Image.create!(title: "Image #{counter}", url: Faker::Avatar.unique.image)
 end
 
 puts "Seeded images"
