@@ -20,6 +20,8 @@ describe "Admin can add an image" do
 
       click_on "Upload Image"
 
+      visit admin_images_path
+
       expect(page).to have_content(image.title)
     end
   end
