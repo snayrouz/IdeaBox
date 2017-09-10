@@ -1,35 +1,18 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark" role="navigation">
-  <div class="container-fluid">
-    <a href="/" class = "navbar-brand">IDEABOX</a>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li> <%= link_to "Home", user_path(@user) %> </li>
-        <% if current_user.role == "admin" %>
-        <li><%= link_to "Categories", admin_categories_path %></li>
-        <li><%= link_to "Images", admin_images_path %></li>
-        <% end %>
-        <% if logged_in? %>
-          <li><%= link_to "Logout", logout_path, method: :delete %></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</nav>
+<%= render partial: 'admin/categories/nav' %>
+
 <div class="container-fluid">
-<button type="button" class="btn btn-outline-info"><%= link_to "New Category", new_admin_category_path %></button><br>
-<br>
-<table class="table text-left table-striped table-bordered">
-  <thead>
-    <th>Idea Categories Index</th>
-    <tbody>
-  <tr><% @categories.each do |category| %></tr>
-    <td><%= link_to category.name, admin_category_path(category) %><br></td>
-    <td><button type="button" class="btn btn-light"><%= link_to "Edit", edit_admin_category_path(category) %></button></td>
-    <td><button type="button" class="btn btn-outline-warning"><%= link_to "Delete", admin_category_path(category), method: :delete, data: { confirm: 'Are you sure you want to delete this category?' } %></button></td>
-  <% end %>
-</tbody>
-</thead>
-</table>
-
-
+  <button type="button" class="btn btn-outline-info"><%= link_to "New Category", new_admin_category_path %></button><br>
+  <br>
+    <table class="table text-left table-striped table-bordered">
+      <thead>
+        <th>Idea Categories Index</th>
+        <tbody>
+      <tr><% @categories.each do |category| %></tr>
+        <td><%= link_to category.name, admin_category_path(category) %><br></td>
+        <td><button type="button" class="btn btn-light"><%= link_to "Edit", edit_admin_category_path(category) %></button></td>
+        <td><button type="button" class="btn btn-outline-warning"><%= link_to "Delete", admin_category_path(category), method: :delete, data: { confirm: 'Are you sure you want to delete this category?' } %></button></td>
+      <% end %>
+    </tbody>
+    </thead>
+    </table>
 </div>

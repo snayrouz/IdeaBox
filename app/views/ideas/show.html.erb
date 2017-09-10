@@ -1,20 +1,4 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark" role="navigation">
-<div class="container-fluid">
-  <a href="/" class = "navbar-brand">IDEABOX</a>
-  <div class="collapse navbar-collapse">
-    <ul class="nav navbar-nav navbar-right">
-      <li> <%= link_to "Home", user_path(@user) %> </li>
-      <% if current_user.role == "admin" %>
-      <li><%= link_to "Categories", admin_categories_path %></li>
-      <li><%= link_to "Images", new_admin_image_path %></li>
-      <% end %>
-      <% if logged_in? %>
-        <li><%= link_to "Logout", logout_path, method: :delete %></li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-</nav>
+<%= render partial: 'layouts/nav' %>
 <div class="container-fluid">
 <table class="table table-striped text-left table-bordered">
   <thead>
@@ -29,6 +13,10 @@
       <td><%= idea.title %></td>
       <td><%= idea.description %></td>
       <td><%= idea.category.name %></td>
+      <td> <% @images.each do |image| %>
+            <img src=<% image.url %>
+            <%= image.url  %>
+          <% end %></td>
     <% end %>
   </tbody>
 </table>
