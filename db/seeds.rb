@@ -14,7 +14,7 @@ puts "Seeded categories"
                 email: Faker::Internet.email,
                 role: Faker::Number.between(0, 1))
   20.times do
-    user.ideas.create!(title: Faker::RickAndMorty.quote,
+    user.ideas.create!(title: Faker::Company.buzzword,
                        description: Faker::FamilyGuy.quote,
                        category_id: Faker::Number.between(1, 10),
                        user_id: Faker::Number.between(1, 20))
@@ -24,7 +24,7 @@ puts "Seeded users and ideas"
 
 20.times do
   counter = rand(20)
-  Image.create!(title: "Robot #{counter}", url: Faker::Fillmurray.image)
+  Image.create!(title: "Bill #{counter}", url: Faker::Fillmurray.image)
 end
 
 puts "Seeded images"
