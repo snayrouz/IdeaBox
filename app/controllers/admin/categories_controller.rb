@@ -7,7 +7,6 @@ class Admin::CategoriesController < Admin::BaseController
   def new
     @category = Category.new
     @user = current_user
-
   end
 
   def edit
@@ -31,23 +30,12 @@ class Admin::CategoriesController < Admin::BaseController
     @user = current_user
   end
 
-  def update
-    @category = Category.find(params[:id])
-    if @category.update(category_params)
-      flash[:notice] = "Category Updated!"
-      redirect_to admin_categories_path
-    else
-      flash[:notice] = "Error, #{@category.errors.keys}, #{@category.errors.values}"
-      redirect_to edit_admin_category_path
-    end
-  end
-
   def destroy
     @category = Category.find(params[:id])
     if @category.destroy
 
     flash[:notice] = "Category Deleted!"
-    
+
     redirect_to admin_categories_path
     else
       flash[:notice] = "Error, #{@category.errors.keys}, #{@category.errors.values}"
