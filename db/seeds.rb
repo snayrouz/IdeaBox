@@ -4,7 +4,7 @@ Category.destroy_all
 User.destroy_all
 
 8.times do
-  Category.create(name: Faker::Beer.style)
+  Category.create(name: Faker::Beer.unique.style)
 end
 puts "Seeded categories"
 
